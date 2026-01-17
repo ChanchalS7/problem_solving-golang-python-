@@ -21,10 +21,13 @@ This repository contains my practice solutions for various programming challenge
 ```
 problem-solving/
 ├── python/          # Python solutions
-│   └── ...
+│   ├── count-negative/
+│   └── search-element/
 ├── golang/          # Go solutions
-│   └── ...
-└── README.md        # This file
+│   ├── count-negative/
+│   └── search-element/
+├── README.md        # Project overview (this file)
+└── PROBLEMS.md      # Detailed problem statements
 ```
 
 ## 🚀 Getting Started
@@ -55,51 +58,21 @@ go build solution_name.go
 
 ## 📚 Problems Solved
 
-### 1. Count Negative Numbers
-**Difficulty:** Easy  
-**Category:** Arrays & Iteration
+**Total Problems:** 2 | **View detailed problem statements:** [PROBLEMS.md](PROBLEMS.md)
 
-**Problem Statement:**  
-Given an array of integers, count and return the total number of negative numbers in the array.
-
-**Example:**
-```
-Input: [2, 3, -1, -5, -6, 7, -8, -4, 9]
-Output: 5
-Explanation: There are 5 negative numbers: -1, -5, -6, -8, -4
-```
-
-**Solutions:**
-- ✅ Python: `python/count-negative/count-negative.py`
-- ✅ Go: `golang/count-negative/main.go`
-
-**Time Complexity:** O(n)  
-**Space Complexity:** O(1)
+| # | Problem | Difficulty | Category | Python | Go |
+|---|---------|------------|----------|--------|-----|
+| 1 | [Count Negative Numbers](PROBLEMS.md#1-count-negative-numbers) | Easy | Arrays & Iteration | ✅ | ✅ |
+| 2 | [Search Element](PROBLEMS.md#2-search-element) | Easy | Arrays & Searching | ✅ | ✅ |
 
 ---
 
-### 2. Search Element
-**Difficulty:** Easy  
-**Category:** Arrays & Searching
+## 📊 Statistics
 
-**Problem Statement:**  
-Given an array of integers and a target element, find and return the index of the target element in the array. If the element is not found, return -1.
-
-**Example:**
-```
-Input: arr = [2, 4, 6, 8, 7, 10, 9, 5], x = 10
-Output: 5
-Explanation: Element 10 is found at index 5
-```
-
-**Solutions:**
-- ✅ Python: `python/search-element/search-element.py`
-- ✅ Go: `golang/search-element/main.go`
-
-**Time Complexity:** O(n)  
-**Space Complexity:** O(1)
-
----
+- **Total Problems Solved:** 2
+- **Easy:** 2 | **Medium:** 0 | **Hard:** 0
+- **Python Solutions:** 2
+- **Go Solutions:** 2
 
 ## 📝 Progress Tracking
 
@@ -116,19 +89,7 @@ Explanation: Element 10 is found at index 5
 - [ ] Compare implementations between Python and Go
 - [ ] Document learnings and patterns
 
-## 📖 Resources
 
-- [LeetCode](https://leetcode.com/)
-- [HackerRank](https://www.hackerrank.com/)
-- [Project Euler](https://projecteuler.net/)
-- [Codeforces](https://codeforces.com/)
-- [CodeChef](https://www.codechef.com/)
-
-## 📌 Notes
-
-- Each solution includes comments explaining the approach
-- Time and space complexity are documented where applicable
-- Alternative approaches are noted when relevant
 
 ## 🤝 Contributing
 
