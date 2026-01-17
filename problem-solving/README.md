@@ -53,24 +53,60 @@ go build solution_name.go
 ./solution_name
 ```
 
-## 📚 Problem Categories
+## 📚 Problems Solved
 
-- [ ] Arrays & Strings
-- [ ] Linked Lists
-- [ ] Stacks & Queues
-- [ ] Trees & Graphs
-- [ ] Dynamic Programming
-- [ ] Sorting & Searching
-- [ ] Recursion & Backtracking
-- [ ] Hash Tables
-- [ ] Math & Logic
-- [ ] Greedy Algorithms
+### 1. Count Negative Numbers
+**Difficulty:** Easy  
+**Category:** Arrays & Iteration
+
+**Problem Statement:**  
+Given an array of integers, count and return the total number of negative numbers in the array.
+
+**Example:**
+```
+Input: [2, 3, -1, -5, -6, 7, -8, -4, 9]
+Output: 5
+Explanation: There are 5 negative numbers: -1, -5, -6, -8, -4
+```
+
+**Solutions:**
+- ✅ Python: `python/count-negative/count-negative.py`
+- ✅ Go: `golang/count-negative/main.go`
+
+**Time Complexity:** O(n)  
+**Space Complexity:** O(1)
+
+---
+
+### 2. Search Element
+**Difficulty:** Easy  
+**Category:** Arrays & Searching
+
+**Problem Statement:**  
+Given an array of integers and a target element, find and return the index of the target element in the array. If the element is not found, return -1.
+
+**Example:**
+```
+Input: arr = [2, 4, 6, 8, 7, 10, 9, 5], x = 10
+Output: 5
+Explanation: Element 10 is found at index 5
+```
+
+**Solutions:**
+- ✅ Python: `python/search-element/search-element.py`
+- ✅ Go: `golang/search-element/main.go`
+
+**Time Complexity:** O(n)  
+**Space Complexity:** O(1)
+
+---
 
 ## 📝 Progress Tracking
 
 | Date | Problem | Difficulty | Python | Go | Notes |
 |------|---------|------------|--------|-----|-------|
-| YYYY-MM-DD | Problem Name | Easy/Medium/Hard | ✅/❌ | ✅/❌ | Brief notes |
+| 2026-01-17 | Count Negative Numbers | Easy | ✅ | ✅ | Linear iteration approach |
+| 2026-01-17 | Search Element | Easy | ✅ | ✅ | Linear search implementation |
 
 ## 🎯 Goals
 
