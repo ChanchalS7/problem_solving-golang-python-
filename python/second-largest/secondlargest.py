@@ -14,3 +14,15 @@ def secondLargest(arr :list[int]) -> int:
 
 arr = [-3, 9, 7, 8, 5, 14, 16]
 print(secondLargest(arr))    			
+
+
+''''
+# Using sorted
+def second_largest(arr: list[int]) -> int:
+    return sorted(arr, reverse=True)[1]
+
+# Using set and sorted (removes duplicates)
+def second_largest(arr: list[int]) -> int:
+    unique_sorted = sorted(set(arr), reverse=True)
+    return unique_sorted[1]
+'''

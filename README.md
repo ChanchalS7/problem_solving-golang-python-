@@ -22,10 +22,14 @@ This repository contains my practice solutions for various programming challenge
 problem-solving/
 ├── python/          # Python solutions
 │   ├── count-negative/
-│   └── search-element/
+│   ├── search-element/
+│   ├── smallest-largest/
+│   └── second-largest/
 ├── golang/          # Go solutions
 │   ├── count-negative/
-│   └── search-element/
+│   ├── search-element/
+│   ├── largest-smallest/
+│   └── second-largest/
 ├── README.md        # Project overview (this file)
 └── PROBLEMS.md      # Detailed problem statements
 ```
@@ -58,21 +62,23 @@ go build solution_name.go
 
 ## 📚 Problems Solved
 
-**Total Problems:** 2 | **View detailed problem statements:** [PROBLEMS.md](PROBLEMS.md)
+**Total Problems:** 4 | **View detailed problem statements:** [PROBLEMS.md](PROBLEMS.md)
 
 | # | Problem | Difficulty | Category | Python | Go |
 |---|---------|------------|----------|--------|-----|
 | 1 | [Count Negative Numbers](PROBLEMS.md#1-count-negative-numbers) | Easy | Arrays & Iteration | ✅ | ✅ |
 | 2 | [Search Element](PROBLEMS.md#2-search-element) | Easy | Arrays & Searching | ✅ | ✅ |
+| 3 | [Find Smallest and Largest](PROBLEMS.md#3-find-smallest-and-largest) | Easy | Arrays & Iteration | ✅ | ✅ |
+| 4 | [Second Largest Element](PROBLEMS.md#4-second-largest-element) | Easy | Arrays & Iteration | ✅ | ✅ |
 
 ---
 
 ## 📊 Statistics
 
-- **Total Problems Solved:** 2
-- **Easy:** 2 | **Medium:** 0 | **Hard:** 0
-- **Python Solutions:** 2
-- **Go Solutions:** 2
+- **Total Problems Solved:** 4
+- **Easy:** 4 | **Medium:** 0 | **Hard:** 0
+- **Python Solutions:** 4
+- **Go Solutions:** 4
 
 ## 📝 Progress Tracking
 
@@ -80,6 +86,8 @@ go build solution_name.go
 |------|---------|------------|--------|-----|-------|
 | 2026-01-17 | Count Negative Numbers | Easy | ✅ | ✅ | Linear iteration approach |
 | 2026-01-17 | Search Element | Easy | ✅ | ✅ | Linear search implementation |
+| 2026-01-17 | Find Smallest and Largest | Easy | ✅ | ✅ | Single pass min/max tracking |
+| 2026-01-17 | Second Largest Element | Easy | ✅ | ✅ | Two-variable tracking approach |
 
 ## 🎯 Goals
 
