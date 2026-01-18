@@ -1,0 +1,141 @@
+PATTERN PRINTING PROGRAMS
+=========================
+
+This directory contains various pattern printing programs demonstrating nested loops
+and string manipulation in both Python and Go.
+
+All patterns use variable 'n' for size control and 'bag' for building output strings.
+
+---
+
+PATTERN 1: Square (5x5)
+-----------------------
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+
+Description: A simple square grid of stars
+Logic: Two nested loops, both running n times
+
+
+PATTERN 2: Descending Triangle (Right-aligned, starts with 4)
+--------------------------------------------------------------
+* * * *
+* * *
+* *
+*
+
+Description: Right-aligned triangle decreasing from top to bottom
+Logic: Outer loop runs from n down to 1, inner loop prints stars
+
+
+PATTERN 3: Ascending Right-Aligned Triangle
+--------------------------------------------
+        *
+      * *
+    * * *
+  * * * *
+* * * * *
+
+Description: Left-padded triangle growing from top to bottom
+Logic: Add leading spaces (n-i), then print i stars
+
+
+PATTERN 4: Ascending Triangle (Compact)
+----------------------------------------
+        *
+      * *
+    * * *
+  * * * *
+* * * * *
+
+Description: Same as Pattern 3 but with compact spacing between stars
+Logic: Leading spaces, then stars with single space between them
+
+
+PATTERN 5: Number Ascending Triangle
+-------------------------------------
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+
+Description: Numbers incrementing from 1 to i in each row
+Logic: Print numbers from 1 to row number
+
+
+PATTERN 6: Number Descending Triangle
+--------------------------------------
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2
+1
+
+Description: Numbers from 1 to i, but rows decrease from n to 1
+Logic: Outer loop runs from n down to 1, inner prints 1 to i
+
+
+PATTERN 7: Binary Pattern (Alternate by Column)
+------------------------------------------------
+1
+1 0
+1 0 1
+1 0 1 0
+1 0 1 0 1
+
+Description: Alternating 1 and 0 based on column position (odd = 1, even = 0)
+Logic: Check if j is odd (j % 2 == 1) → print 1, else print 0
+
+
+PATTERN 8: Binary Pattern (Alternate by Diagonal)
+--------------------------------------------------
+1
+0 1
+1 0 1
+0 1 0 1
+1 0 1 0 1
+
+Description: Alternating 1 and 0 based on diagonal (i+j) parity
+Logic: Check if (i + j) is even → print 1, else print 0
+
+---
+
+KEY CONCEPTS USED:
+==================
+- Nested loops (for controlling rows and columns)
+- String concatenation using 'bag' variable
+- Conditional spacing (only between elements, not at end)
+- Leading spaces for right-alignment
+- Modulo operator (%) for alternating patterns
+- String trimming/stripping for clean output
+
+---
+
+COMPLEXITY ANALYSIS:
+====================
+Time Complexity: O(n²) - All patterns use nested loops
+Space Complexity: O(n) - String concatenation per row
+
+---
+
+HOW TO RUN:
+===========
+Python:
+  python3 patterns.py
+
+Go:
+  go run main.go
+
+---
+
+LEARNING OUTCOMES:
+==================
+✓ Master nested loop patterns
+✓ Understand string building techniques
+✓ Practice mathematical patterns (modulo, parity)
+✓ Learn spacing and alignment techniques
+✓ Compare Python vs Go syntax for similar logic
