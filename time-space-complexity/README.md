@@ -13,7 +13,7 @@ A comprehensive guide to understanding **Time Complexity** and **Space Complexit
 - [Common Space Complexities](#common-space-complexities)
 - [How to Analyze Complexity](#how-to-analyze-complexity)
 - [Visual Comparison Chart](#visual-comparison-chart)
-- [Examples from This Repository](#examples-from-this-repository)
+- [Real-World Algorithm Examples](#real-world-algorithm-examples)
 - [Tips for Optimization](#tips-for-optimization)
 - [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet)
 
@@ -464,73 +464,194 @@ O(2ⁿ)       │ OVERFLOW - astronomically large
 
 ---
 
-## Examples from This Repository
+## Real-World Algorithm Examples
 
-### 1. Count Negative Numbers — O(n) Time, O(1) Space
+### Example 1: Array Sum — O(n) Time, O(1) Space
 
 ```
-Problem: Count negative numbers in array
+Problem: Calculate the sum of all elements in an array
 Approach: Single pass through array
 
+total = 0
 for each element:          ─┐
-    if element < 0:         │  n iterations
-        count++            ─┘
+    total += element        │  n iterations
+                           ─┘
 
-Time:  O(n) - one loop
-Space: O(1) - just a counter variable
+Time:  O(n) - one loop through all elements
+Space: O(1) - just a single accumulator variable
 ```
 
-### 2. Search Element (Linear) — O(n) Time, O(1) Space
-
-```
-Problem: Find index of target element
-Approach: Check each element until found
-
-for i, element in array:   ─┐
-    if element == target:   │  worst case: n iterations
-        return i           ─┘
-
-Time:  O(n) - worst case checks all elements
-Space: O(1) - just index variable
+**Code:**
+```go
+func arraySum(arr []int) int {
+    total := 0
+    for _, v := range arr {
+        total += v
+    }
+    return total
+}
 ```
 
-### 3. Find Smallest & Largest — O(n) Time, O(1) Space
+### Example 2: Two Sum (Brute Force) — O(n²) Time, O(1) Space
 
 ```
-Problem: Find min and max in array
-Approach: Track two variables in single pass
+Problem: Find two numbers that add up to target
+Approach: Check every pair of elements
 
-smallest = ∞, largest = -∞
-for each element:          ─┐
-    update smallest         │  n iterations
-    update largest         ─┘
+for i in range(n):         ─┐
+    for j in range(i+1, n): │  n × n iterations
+        if arr[i]+arr[j]==t │
+            return (i, j)  ─┘
 
-Time:  O(n) - single pass
-Space: O(1) - two tracking variables
+Time:  O(n²) - nested loops checking all pairs
+Space: O(1) - only index variables
 ```
 
-### 4. Second Largest Element — O(n) Time, O(1) Space
+**Code:**
+```go
+func twoSumBruteForce(arr []int, target int) (int, int) {
+    n := len(arr)
+    for i := 0; i < n; i++ {
+        for j := i + 1; j < n; j++ {
+            if arr[i]+arr[j] == target {
+                return i, j
+            }
+        }
+    }
+    return -1, -1
+}
+```
+
+### Example 3: Two Sum (Optimized) — O(n) Time, O(n) Space
 
 ```
-Problem: Find second largest element
-Approach: Track first and second largest in one pass
+Problem: Same as above, but optimized with hash map
+Approach: Store seen values in a map
 
-firstLargest = -∞, secondLargest = -∞
+map = {}
+for i, val in array:       ─┐
+    complement = target-val │
+    if complement in map:   │  n iterations
+        return result       │
+    map[val] = i           ─┘
 
-┌─────────────────────────────────────────┐
-│ for each element v:                     │
-│   ┌─────────────────────────────────┐   │
-│   │ if v > firstLargest:            │   │
-│   │   secondLargest = firstLargest  │   │
-│   │   firstLargest = v              │   │
-│   │ else if v > secondLargest:      │   │
-│   │   secondLargest = v             │   │
-│   └─────────────────────────────────┘   │
-└─────────────────────────────────────────┘
-
-Time:  O(n) - single pass, ≤2 comparisons per element
-Space: O(1) - two integer variables
+Time:  O(n) - single pass with O(1) hash lookups
+Space: O(n) - hash map stores up to n elements
 ```
+
+**Code:**
+```go
+func twoSumOptimized(arr []int, target int) (int, int) {
+    seen := make(map[int]int)
+    for i, val := range arr {
+        complement := target - val
+        if j, exists := seen[complement]; exists {
+            return j, i
+        }
+        seen[val] = i
+    }
+    return -1, -1
+}
+```
+
+### Example 4: Binary Search — O(log n) Time, O(1) Space
+
+```
+Problem: Find target in sorted array
+Approach: Eliminate half of remaining elements each step
+
+left, right = 0, n-1
+while left <= right:       ─┐
+    mid = (left+right)/2    │  log₂(n) iterations
+    if arr[mid] == target:  │
+        return mid          │
+    elif arr[mid] < target: │
+        left = mid + 1      │
+    else:                   │
+        right = mid - 1    ─┘
+
+Time:  O(log n) - halves search space each iteration
+Space: O(1) - only three pointer variables
+```
+
+### Example 5: Merge Sort — O(n log n) Time, O(n) Space
+
+```
+Problem: Sort an array
+Approach: Divide and conquer with merging
+
+┌────────────────────────────────────────────┐
+│  divide array into halves  → log n levels  │
+│  merge sorted halves       → n work/level  │
+│                                            │
+│  Total: O(n) × O(log n) = O(n log n)       │
+└────────────────────────────────────────────┘
+
+Time:  O(n log n) - divide (log n) × merge (n)
+Space: O(n) - temporary arrays for merging
+```
+
+### Example 6: Fibonacci (Naive Recursive) — O(2ⁿ) Time, O(n) Space
+
+```
+Problem: Calculate nth Fibonacci number
+Approach: Recursive calls without memoization
+
+fib(n) = fib(n-1) + fib(n-2)
+
+                fib(5)
+               /      \
+           fib(4)    fib(3)    ← Same subproblems
+          /    \      /    \      recalculated!
+       fib(3) fib(2) fib(2) fib(1)
+
+Time:  O(2ⁿ) - exponential recursive calls
+Space: O(n) - recursion stack depth
+```
+
+### Example 7: Fibonacci (DP Optimized) — O(n) Time, O(1) Space
+
+```
+Problem: Same, but with dynamic programming
+Approach: Track only previous two values
+
+prev2, prev1 = 0, 1
+for i in range(2, n+1):    ─┐
+    current = prev1 + prev2 │  n iterations
+    prev2 = prev1           │
+    prev1 = current        ─┘
+
+Time:  O(n) - single loop
+Space: O(1) - only two/three variables
+```
+
+**Code:**
+```go
+func fibOptimized(n int) int {
+    if n <= 1 {
+        return n
+    }
+    prev2, prev1 := 0, 1
+    for i := 2; i <= n; i++ {
+        current := prev1 + prev2
+        prev2 = prev1
+        prev1 = current
+    }
+    return prev1
+}
+```
+
+### Complexity Comparison Summary:
+
+| Algorithm              | Time       | Space  | Trade-off                       |
+|------------------------|------------|--------|----------------------------------|
+| Array Sum              | O(n)       | O(1)   | Optimal                         |
+| Two Sum (Brute)        | O(n²)      | O(1)   | Simple, slow                    |
+| Two Sum (Hash)         | O(n)       | O(n)   | Fast, uses memory               |
+| Binary Search          | O(log n)   | O(1)   | Requires sorted input           |
+| Merge Sort             | O(n log n) | O(n)   | Stable, consistent              |
+| Fibonacci (Naive)      | O(2ⁿ)      | O(n)   | Don't use this!                 |
+| Fibonacci (DP)         | O(n)       | O(1)   | Optimal                         |
 
 ---
 
